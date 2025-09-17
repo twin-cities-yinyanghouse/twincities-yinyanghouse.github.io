@@ -17,16 +17,16 @@ const totalPages = Math.ceil(sortedItems.length / ITEMS_PER_PAGE);
 const paginatedItems = sortedItems.slice(0, ITEMS_PER_PAGE); // Items for the first page
 
 const pageData = {
-	title: "Yin Yang House Chattanooga News and Events",
+	title: "Yin Yang House Twin Cities News and Events",
 	date: "",
 	slug: "news-events",
 	author: "",
 	coverimage: "", 
 	coveralt: "",
 	parent: "",
-	description: "News and events related to the acupuncture, massage and wellness services offered at Yin Yang House Chattanooga.",
+	description: "News and events related to the acupuncture and wellness services offered at Yin Yang House Twin Cities.",
 	ogImage: "",
-	keywords: ["acupuncture news", "chattannoga wellness news", "chattanooga events", "massage therapy news"],
+	keywords: ["acupuncture news", "minneapolis wellness news", "minneapolis events", "st paul wellness new", "st paul events", "twin cities wellness news", "twin cities events"],
 	socialTitle: "",
 	socialDescription: "",
 	layout: "",
@@ -34,7 +34,7 @@ const pageData = {
 ---
 <Layout fullWidth={false} thisPage={pageData} isArticle={true} isProduct={false}>
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 bg-white dark:bg-gray-800 shadow-md rounded-b-lg p-6">
-        <h1 class="text-3xl font-bold">Chattanooga Center News and Events</h1>
+        <h1 class="text-3xl font-bold">Twin Cities Center News and Events</h1>
         <ul class="space-y-2">
             {paginatedItems.map(i => (
                 <li class="list-disc ml-5"> 

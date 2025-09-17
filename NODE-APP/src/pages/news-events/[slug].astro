@@ -19,15 +19,15 @@ if (!entry) {
 const html = entry.rendered?.html || '<p>Content not available</p>';
 
 // Get the site URL for absolute URLs in meta tags
-const siteUrl = Astro.site || 'https://chattanooga.yinyanghouse.com';
+const siteUrl = Astro.site || 'https://tc.yinyanghouse.com';
 const currentUrl = new URL(Astro.request.url).href;
 
 // Prepare SEO and social sharing metadata
 const pageTitle = entry.data.title;
-const pageDescription = entry.data.description || `${entry.data.title} - Yin Yang House Chattanooga`;
+const pageDescription = entry.data.description || `${entry.data.title} - Yin Yang House Twin Cities`;
 const pageImage = entry.data.ogImage || entry.data.coverimage || '/images/yin-yang-house-default.jpg';
 const pageImageUrl = new URL(pageImage, siteUrl).toString();
-const pageAuthor = entry.data.author || 'Yin Yang House Chattanooga';
+const pageAuthor = entry.data.author || 'Yin Yang House Twin Cities';
 const pageParent = entry.data.parent || 'news-events';
 const pageCurrent = entry.data.slug;
 
@@ -35,7 +35,7 @@ const pageCurrent = entry.data.slug;
 const socialTitle = entry.data.socialTitle || pageTitle;
 const socialDescription = entry.data.socialDescription || pageDescription;
 // Fix: Handle keywords properly to avoid type errors
-const keywords = Array.isArray(entry.data.keywords) ? entry.data.keywords : ['wellness', 'health', 'chattanooga', 'yin yang house'];
+const keywords = Array.isArray(entry.data.keywords) ? entry.data.keywords : ['wellness', 'health', 'twin cities', 'minneapolis', 'st paul', ', 'yin yang house'];
 
 // Article publish date
 const publishDate = new Date(entry.data.date).toISOString();
@@ -64,7 +64,7 @@ const pageData = {
 	parent: "news-events",
 	description: entry.data.description,
 	ogImage: entry.data.ogImage || entry.data.coverimage || '/images/yin-yang-house-default.jpg', 
-	keywords: Array.isArray(entry.data.keywords) ? entry.data.keywords : ['wellness', 'health', 'chattanooga', 'yin yang house'],
+	keywords: Array.isArray(entry.data.keywords) ? entry.data.keywords : ['wellness', 'health', 'twin cities', 'minneapolis', 'st paul', 'yin yang house'],
 	socialTitle: entry.data.socialTitle,
 	socialDescription: entry.data.socialDescription,
 	layout: "",
