@@ -1,4 +1,4 @@
-# Chattanooga Yin Yang House Site
+# Twin Cities Yin Yang House Site
 
 ## Initial Setup
 ```
