@@ -35,7 +35,7 @@ const pageCurrent = entry.data.slug;
 const socialTitle = entry.data.socialTitle || pageTitle;
 const socialDescription = entry.data.socialDescription || pageDescription;
 // Fix: Handle keywords properly to avoid type errors
-const keywords = Array.isArray(entry.data.keywords) ? entry.data.keywords : ['wellness', 'health', 'twin cities', 'minneapolis', 'st paul', ', 'yin yang house'];
+const keywords = Array.isArray(entry.data.keywords) ? entry.data.keywords : ['wellness', 'health', 'twin cities', 'minneapolis', 'st paul', 'yin yang house'];
 
 // Article publish date
 const publishDate = new Date(entry.data.date).toISOString();
