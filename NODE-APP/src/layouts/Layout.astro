@@ -24,19 +24,13 @@ const pageData = {
 }
 */
 
-// Define navigation items as a reusable constant
+// Define navigation items as a reusable constant (used for both desktop and mobile)
 const navItems = [
     { href: '/#aboutus', label: 'About' },
     { href: '/#services', label: 'Services' },
     { href: '/news-events/', label: 'News / Events' },
     { href: '/#contactus', label: 'Contact'},
-];
-
-const navMobileItems = [
-    { href: '/#aboutus', label: 'About' },
-    { href: '/#services', label: 'Services' },
-    { href: '/news-events/', label: 'News / Events' },
-    { href: '/#contactus', label: 'Contact'},
+    { href: 'https://yinyanghouse.com/', label: 'Theory Site'},
 ];
 
 //    { href: '/appointments', label: 'Appointments' },
@@ -188,7 +182,7 @@ const jsonLdFull = {
 				
 				
 				<!-- Navigation Links -->
-                <nav class="hidden md:flex space-x-4">
+                <nav class="hidden lg:flex space-x-4">
                     {navItems.map(item => (
                         <a href={item.href} class="px-4 py-2 rounded-md bg-[#a48c3c] text-white hover:bg-[#b59d4d] dark:bg-[#8a712b] dark:hover:bg-[#9b823c] transition shadow-sm">
                             {item.label}
@@ -244,10 +238,10 @@ const jsonLdFull = {
             <!-- Mobile Menu -->
             <div
                 x-show="mobileMenuOpen"
-                class="md:hidden bg-[#8a712b] dark:bg-[#8a712b] text-white"
+                class="lg:hidden bg-[#8a712b] dark:bg-[#8a712b] text-white"
                 @click.away="mobileMenuOpen = false"
             >
-                {navMobileItems.map(item => (
+                {navItems.map(item => (
                     <a href={item.href} class="block px-4 py-2 hover:bg-[#9fcf67] dark:hover:bg-[#9fcf67]" @click="mobileMenuOpen = false">
                         {item.label}
                     </a>
