@@ -1,11 +1,17 @@
-<section id="schedule" class="py-16 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-  <!--<div class="w-full sm:w-4/5 mx-auto bg-white dark:bg-gray-800 rounded-xl shadow overflow-hidden"> -->
-  <div class="w-full sm:w-4/5 mx-auto bg-white dark:bg-gray-800 rounded-xl shadow">
+<section id="schedule" class="pt-28 pb-16 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <!-- Card wrapper: centered with internal padding so content isn't flush to edges -->
+  <div class="w-full sm:w-4/5 mx-auto bg-white dark:bg-gray-800 rounded-xl shadow p-6">
+  <h3 class="font-headers">We are currently exploring options for our Twin Cities location, stay tuned!  If you'd like to be added to our waitlist/announcement list, free free to email your request to <a href="mailto:tc@yyhmsg.net">tc [at] yyhmsg.net</a>.  Thank you!</h3>
     <div class="relative">
-      <!-- <iframe src="https://app.acuityscheduling.com/schedule.php?owner=" title="Schedule Appointment" class="w-full aspect-video" frameborder="0"></iframe> -->
+        <!-- Direct Square Appointments iframe embed (reliable inside Astro) -->
+        <iframe
+          src="https://app.squareup.com/appointments/buyer/widget/szikzdsw6s6eex/LSQDTPCRCPS3V"
+          title="Square Appointments"
+          style="width:100%; min-height:500px; border: none;"
+          allow="payment app.squareup.com"
+          aria-label="Appointment scheduling iframe"
+        ></iframe>
     </div>
-    <script defer src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
-  <h3>We are still exploring locations.  Appointment Availability TBA.</h3>
   </div>
 </section>
 
