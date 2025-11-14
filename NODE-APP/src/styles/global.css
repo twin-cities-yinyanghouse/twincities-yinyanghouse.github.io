@@ -2,26 +2,7 @@
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Fix menu item styles */
-
-html { 
-    scroll-behavior: smooth;
-}
-
-nav a {
-    color: white; /* Explicitly set text color to white */
-    background-color: inherit; /* No background color changes */
-    text-decoration: none; /* Remove underline from menu items */
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #b59d4d; /* Hover background for light mode */
-}
-
-body.dark nav a:hover {
-    background-color: #9b823c; /* Hover background for dark mode */
-}
+/* Remove conflicting header styles - using Tailwind classes instead */
 
 /* Adjust breadcrumb link styles */
 .breadcrumb-link {

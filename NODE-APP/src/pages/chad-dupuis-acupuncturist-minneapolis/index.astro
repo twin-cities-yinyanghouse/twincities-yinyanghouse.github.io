@@ -1,0 +1,72 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import chadPhoto from '@assets/chad-dupuis-acupuncturist-yinyanghouse-twin-cities-acupuncture-280.webp';
+const pageData = {
+	title: "Chad Dupuis, Licensed Acupuncturist - Minneapolis Acupuncture Expert",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "",
+	coveralt: "",
+	parent: "",
+	description: "Meet Chad Dupuis, L.Ac., a licensed acupuncturist with over 20 years of experience providing traditional Chinese medicine and acupuncture services in Minneapolis and St. Paul.",
+	ogImage: "",
+	keywords: [
+		"Chad Dupuis acupuncturist",
+		"licensed acupuncturist Minneapolis",
+		"acupuncture expert Twin Cities",
+		"traditional Chinese medicine",
+		"Yin Yang House practitioner",
+		"acupuncture Minneapolis St Paul"
+	],
+	socialTitle: "Chad Dupuis, L.Ac. - Minneapolis Acupuncturist",
+	socialDescription: "Licensed acupuncturist Chad Dupuis brings over 20 years of experience in traditional Chinese medicine to help patients in Minneapolis and St. Paul achieve optimal health.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<section class="py-16">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<div class="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-full shadow-lg">
+					<img
+						src={chadPhoto.src}
+						alt="Chad Dupuis, Licensed Acupuncturist"
+						class="w-full h-full object-cover"
+					/>
+				</div>
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Chad Dupuis, L.Ac.</h1>
+				<p class="text-xl text-gray-600 dark:text-gray-300">Licensed Acupuncturist & Traditional Chinese Medicine Practitioner</p>
+			</div>
+
+			<div class="prose prose-lg max-w-none dark:prose-invert">
+				<p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+					Chad is licensed by the Minnesota Board of Medicine and is nationally certified by the NCCAOM.  He has over 20 years of experience in helping people of all ages with nearly any set of physical and/or mental health issues. Voted the "best of the best" acupuncturist by his many thousands of patients, many years in a row, at the clinic he founded in Chattanooga before he returned with his wife and two young boys to the midwest.
+				</p>
+
+				<p class="text-gray-700 dark:text-gray-300 mb-6">
+					He utilizes a range of techniques tailored to each individual patient, drawing heavily from the founder of Tong Ren Therapy, Master Tom Tam, whom he has studied with, worked with, and continues to learn from for three decades.
+				</p>
+
+				<p class="text-gray-700 dark:text-gray-300 mb-6">
+					He is a perpetual student, prolific writer, and explorer who shares his knowledge freely through the Yin Yang House website. His site has helped teachers, practitioners, and the general public alike explore the foundations and workings of Chinese Medicine and associated systems.
+				</p>
+
+				<p class="text-gray-700 dark:text-gray-300 mb-6">
+					He is also an avid meditator and qigong/tai chi practitioner who has studied and taught for over 30 years. He offers classes utilizing these techniques to help his patients improve their health.
+				</p>
+
+				<div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+					<a href="/appointments" class="inline-block bg-[#5cc4b5] hover:bg-[#4a9b8f] text-white px-8 py-3 rounded-lg font-semibold transition text-center min-w-[200px]">
+						Schedule Appointment
+					</a>
+					<a href="/contact/" class="inline-block border-2 border-[#5cc4b5] text-[#5cc4b5] hover:bg-[#5cc4b5] hover:text-white px-8 py-3 rounded-lg font-semibold transition text-center min-w-[200px]">
+						Contact Us
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

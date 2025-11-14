@@ -1,0 +1,33 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import Fees from "@components/Fees.astro";
+const pageData = {
+	title: "Acupuncture Fees & Insurance - Yin Yang House Twin Cities",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "",
+	coveralt: "",
+	parent: "",
+	description: "Fees and insurance information for acupuncture services at Yin Yang House Twin Cities. Learn about our pricing for private treatments, community clinic, classes, and insurance policies.",
+	ogImage: "",
+	keywords: [
+		"acupuncture fees",
+		"acupuncture pricing",
+		"acupuncture insurance",
+		"acupuncture cost",
+		"private acupuncture treatment",
+		"community clinic acupuncture",
+		"qigong classes",
+		"tai chi classes"
+	],
+	socialTitle: "Acupuncture Fees & Insurance - Yin Yang House Twin Cities",
+	socialDescription: "Complete pricing information and insurance policies for acupuncture and wellness services in Minneapolis and St. Paul.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<Fees />
+</Layout>

@@ -1,0 +1,87 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import acupunctureImg from '@assets/back-acupuncture-minneapolis-yinyanghouse.png';
+import massageImg from '@assets/tuina-massage-minneapolis.yinyanghouse.png';
+import herbalImg from '@assets/chinese-herbal-medicine-minneapolis-yinyanghouse.png';
+import taichiImg from '@assets/yang-tai-chi-minneapolis-yinyanghouse.png';
+const pageData = {
+	title: "Acupuncture Services Minneapolis St Paul - Yin Yang House Twin Cities",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "", 
+	coveralt: "",
+	parent: "",
+	description: "Explore our acupuncture services in Minneapolis and St. Paul including acupuncture, Tuina massage, Qigong, Tai Chi classes, and Chinese herbal medicine consultations.",
+	ogImage: "",
+	keywords: [
+		"acupuncture services Minneapolis",
+		"Tuina massage St Paul",
+		"Qigong classes Twin Cities",
+		"Tai Chi Minneapolis",
+		"Chinese herbal medicine",
+		"cupping therapy",
+		"wellness services",
+		"alternative medicine"
+	],
+	socialTitle: "Acupuncture and Wellness Services - Yin Yang House Twin Cities",
+	socialDescription: "Comprehensive acupuncture and wellness services in Minneapolis and St. Paul, including traditional Chinese medicine treatments.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<section class="py-16">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Services</h1>
+				<p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+					We offer comprehensive Traditional Chinese Medicine treatments tailored to your individual health issues.<br /><br />An "acupuncture treatment" may include tuina, herbal medicine recommendations, dietary and lifestyle recommendations, and other adjunctive therapies such as cupping and moxibustion as appropriate.
+				</p>
+			</div>
+			
+			<div class="grid md:grid-cols-2 gap-8">
+				<a href="/fees" class="block bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition ![text-decoration:none]">
+					<div class="w-16 h-16 rounded-lg overflow-hidden mb-4 mx-auto">
+						<img src={acupunctureImg.src} alt="Acupuncture treatment with needles" class="w-full h-full object-cover" />
+					</div>
+					<h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Acupuncture</h3>
+					<p class="text-gray-600 dark:text-gray-300">Gentle but efficient acupuncture techniques for a wide range of issues.</p>
+				</a>
+				<a href="/fees" class="block bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition ![text-decoration:none]">
+					<div class="w-16 h-16 rounded-lg overflow-hidden mb-4 mx-auto">
+						<img src={massageImg.src} alt="Therapeutic massage treatment" class="w-full h-full object-cover" />
+					</div>
+					<h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Tuina Massage</h3>
+					<p class="text-gray-600 dark:text-gray-300">Chinese Medicine based massage techniques drawn from the Tam Healing system.</p>
+				</a>
+				<a href="/fees" class="block bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition ![text-decoration:none]">
+					<div class="w-16 h-16 rounded-lg overflow-hidden mb-4 mx-auto">
+						<img src={herbalImg.src} alt="Chinese herbal medicine" class="w-full h-full object-cover" />
+					</div>
+					<h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Herbal Medicine</h3>
+					<p class="text-gray-600 dark:text-gray-300">Traditional Chinese Medicine herbal formulas and/or dietary recommendations.</p>
+				</a>
+				<a href="/fees" class="block bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition ![text-decoration:none]">
+					<div class="w-16 h-16 rounded-lg overflow-hidden mb-4 mx-auto">
+						<img src={taichiImg.src} alt="Tai Chi practice" class="w-full h-full object-cover" />
+					</div>
+					<h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Qigong & Tai Chi</h3>
+					<p class="text-gray-600 dark:text-gray-300">Easy to learn mind-body health exercises backed by research.</p>
+				</a>
+			</div>
+			
+			<div class="text-center mt-8">
+				<div class="flex justify-center gap-4">
+					<a href="/questions" class="inline-block bg-[#5cc4b5] hover:bg-[#4a9b8f] text-white px-8 py-3 rounded-lg font-semibold transition">
+						Frequently Asked Questions
+					</a>
+					<a href="/conditions" class="inline-block bg-[#7BBF67] hover:bg-[#679F5A] text-white px-8 py-3 rounded-lg font-semibold transition">
+						Conditions Treated
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

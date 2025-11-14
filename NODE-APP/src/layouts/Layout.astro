@@ -1,6 +1,9 @@
 ---
 import '@styles';
 import yyhLogo from '@assets/yinyanghouse-clinic-mn-logo-300.webp';
+import blueskyLogo from '@assets/bluesky-logo.webp';
+import githubLogo from '@assets/github-logo.webp';
+import linkedinLogo from '@assets/linkedin-logo.webp';
 const { thisPage = {}, fullWidth = false, isArticle = false, isProduct = false } = Astro.props;
 const visibleBreadcrumb = isArticle || isProduct;
 // fullwidth is used for schedule page
@@ -26,11 +29,16 @@ const pageData = {
 
 // Define navigation items as a reusable constant (used for both desktop and mobile)
 const navItems = [
-    { href: '/#aboutus', label: 'About' },
-    { href: '/#services', label: 'Services' },
+    { href: '/', label: 'About' },
+    { href: '/services/', label: 'Services' },
+    { href: '/conditions/', label: 'Conditions' },
+    { href: '/questions/', label: 'Questions' },
+    { href: '/fees/', label: 'Fees' },
+    { href: '/chad-dupuis-acupuncturist-minneapolis/', label: 'Chad, L.Ac.' },
+    { href: '/reviews/', label: 'Reviews' },
+    { href: '/appointments/', label: 'Schedule' },
     { href: '/news-events/', label: 'News / Events' },
-    { href: '/#contactus', label: 'Contact'},
-    { href: 'https://yinyanghouse.com/', label: 'Theory Site'},
+    { href: '/contact/', label: 'Contact / Location' },
 ];
 
 //    { href: '/appointments', label: 'Appointments' },
@@ -163,97 +171,172 @@ const jsonLdFull = {
         }
 
     </head>
-    <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-        <header class="fixed top-0 left-0 w-full bg-[#8a712b] dark:bg-[#8a712b] shadow-md z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-                <!-- Logo -->
-				<a href="/" class="flex items-center space-x-2">
-					<div
-						class="p-2 rounded-full bg-white dark:bg-gray-700"
-					>
-						<img
-							src={yyhLogo.src}
-							alt="Yin Yang House Logo"
-							class="h-8 w-auto"
-						/>
-					</div>
-					<span class="text-xl font-bold text-white"></span>
-				</a>
-				
-				
-				<!-- Navigation Links -->
-                <nav class="hidden lg:flex space-x-4">
-                    {navItems.map(item => (
-                        <a href={item.href} class="px-4 py-2 rounded-md bg-[#a48c3c] text-white hover:bg-[#b59d4d] dark:bg-[#8a712b] dark:hover:bg-[#9b823c] transition shadow-sm">
-                            {item.label}
+    <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100" x-data="{
+        darkMode: localStorage.getItem('darkMode') !== null
+            ? JSON.parse(localStorage.getItem('darkMode'))
+            : window.matchMedia('(prefers-color-scheme: dark)').matches,
+        mobileMenuOpen: false,
+        toggleDarkMode() {
+            this.darkMode = !this.darkMode;
+            localStorage.setItem('darkMode', this.darkMode);
+            document.documentElement.classList.toggle('dark', this.darkMode);
+        }
+    }"
+    x-init="document.documentElement.classList.toggle('dark', darkMode)">
+        <header class="fixed top-0 left-0 w-full bg-[#8a712b] shadow-md z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Desktop Header -->
+                <div class="hidden md:flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-4">
+                        <a href="/" class="flex items-center space-x-2">
+                            <div class="p-2 rounded-full bg-white dark:bg-gray-700">
+                                <img
+                                    src={yyhLogo.src}
+                                    alt="Yin Yang House Logo"
+                                    class="h-8 w-auto"
+                                />
+                            </div>
+                            <div>
+                                <div class="text-lg font-bold text-white">Yin Yang House</div>
+                                <div class="text-sm text-gray-200">Twin Cities Acupuncture</div>
+                            </div>
                         </a>
-                    ))}
-                </nav>
-                <!-- Always visible Schedule (Appointments) Button on Header -->
-                <div class="md:block">
-                    <!-- <a href="/#schedule" class="px-4 py-2 rounded-md bg-[#a48c3c] text-white hover:bg-[#b59d4d] dark:bg-[#8a712b] dark:hover:bg-[#9b823c] transition shadow-sm"> -->
-                    <a 
-                    href="/appointments" 
-                    class="px-4 py-2 rounded-md bg-[#7BBF67] text-white hover:bg-[#679F5A] dark:bg-[#66BB6A] dark:hover:bg-[#5CAC5F] transition shadow-sm">
-                    Appointments
-                  </a>
-                                                                      </div>
-                <!-- Dark Mode and Mobile Menu Toggle -->
-                <div class="flex items-center space-x-4">
-                    <!-- Dark Mode Toggle -->
-                    <button
-                        @click="toggleDarkMode"
-                        class="relative w-10 h-10 rounded-full bg-[#a48c3c] flex items-center justify-center cursor-pointer"
-                        aria-label="Toggle Dark Mode"
-                    >
-                        <div
-                            class="w-6 h-6 rounded-full bg-white dark:bg-gray-700 transition-colors"
-                        ></div>
-                    </button>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <!-- Appointments Button -->
+                        <a 
+                            href="/appointments" 
+                            class="px-4 py-2 rounded-md bg-[#7BBF67] text-white hover:bg-[#679F5A] transition shadow-sm">
+                            Schedule
+                        </a>
+                        
+                        <!-- Dark Mode Toggle -->
+                        <button
+                            @click="toggleDarkMode"
+                            class="relative w-10 h-10 rounded-full bg-[#a48c3c] flex items-center justify-center cursor-pointer"
+                            aria-label="Toggle Dark Mode"
+                        >
+                            <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                            </svg>
+                            <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
-                    <!-- Mobile Menu Toggle -->
-                    <button
-                        @click="mobileMenuOpen = !mobileMenuOpen"
-                        class="relative w-10 h-10 rounded-full bg-[#a48c3c] flex items-center justify-center cursor-pointer md:hidden"
-                        aria-label="Toggle Mobile Menu"
-                    >
-                        <div class="relative w-6 h-6">
-                            <span
-                                class="absolute top-0 left-0 w-6 h-0.5 bg-white transition-transform transform"
-                                :class="mobileMenuOpen ? 'rotate-45 translate-y-2.5' : ''"
-                            ></span>
-                            <span
-                                class="absolute top-2.5 left-0 w-6 h-0.5 bg-white transition-opacity"
-                                :class="mobileMenuOpen ? 'opacity-0' : ''"
-                            ></span>
-                            <span
-                                class="absolute top-5 left-0 w-6 h-0.5 bg-white transition-transform transform"
-                                :class="mobileMenuOpen ? '-rotate-45 -translate-y-2.5' : ''"
-                            ></span>
+                <!-- Mobile Header -->
+                <div class="md:hidden">
+                    <div class="flex justify-between items-center h-12">
+                        <a href="/" class="flex items-center">
+                            <div class="p-1 rounded-full bg-white dark:bg-gray-700">
+                                <img
+                                    src={yyhLogo.src}
+                                    alt="Yin Yang House Logo"
+                                    class="h-6 w-auto"
+                                />
+                            </div>
+                        </a>
+                        <div class="flex items-center space-x-2">
+                            <!-- Appointments Button -->
+                            <a 
+                                href="/appointments" 
+                                class="px-3 py-1 text-sm rounded-md bg-[#7BBF67] text-white hover:bg-[#679F5A] transition">
+                                Schedule
+                            </a>
+                            
+                            <!-- Dark Mode Toggle -->
+                            <button
+                                @click="toggleDarkMode"
+                                class="relative w-8 h-8 rounded-full bg-[#a48c3c] flex items-center justify-center cursor-pointer"
+                                aria-label="Toggle Dark Mode"
+                            >
+                                <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                                </svg>
+                                <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                                </svg>
+                            </button>
+
+                            <!-- Mobile Menu Toggle -->
+                            <button
+                                @click="mobileMenuOpen = !mobileMenuOpen"
+                                class="relative w-8 h-8 rounded-full bg-[#a48c3c] flex items-center justify-center cursor-pointer"
+                                aria-label="Toggle Mobile Menu"
+                            >
+                                <div class="relative w-4 h-4">
+                                    <span class="absolute top-0 left-0 w-4 h-0.5 bg-white transition-transform transform" :class="mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''"></span>
+                                    <span class="absolute top-1.5 left-0 w-4 h-0.5 bg-white transition-opacity" :class="mobileMenuOpen ? 'opacity-0' : ''"></span>
+                                    <span class="absolute top-3 left-0 w-4 h-0.5 bg-white transition-transform transform" :class="mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''"></span>
+                                </div>
+                            </button>
                         </div>
-                    </button>
+                    </div>
                 </div>
             </div>
 
             <!-- Mobile Menu -->
             <div
                 x-show="mobileMenuOpen"
-                class="lg:hidden bg-[#8a712b] dark:bg-[#8a712b] text-white"
+                class="md:hidden bg-[#f5f1e8] dark:bg-gray-800 border-t border-[#a48c3c] dark:border-gray-700 shadow-lg"
                 @click.away="mobileMenuOpen = false"
             >
-                {navItems.map(item => (
-                    <a href={item.href} class="block px-4 py-2 hover:bg-[#9fcf67] dark:hover:bg-[#9fcf67]" @click="mobileMenuOpen = false">
-                        {item.label}
-                    </a>
-                ))}
+                <div class="px-4 py-6">
+                    <nav class="space-y-4">
+                        {navItems.map(item => (
+                            <a href={item.href} {...(item.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} @click="mobileMenuOpen = false" class={`block py-2 px-4 ${item.href === Astro.url.pathname ? 'bg-[#6a5a1f] text-white dark:bg-[#a48c3c] dark:text-white' : 'text-gray-900 dark:text-gray-200'} hover:bg-[#6a5a1f] hover:text-white dark:hover:bg-[#a48c3c] dark:hover:text-white rounded-lg transition font-medium`}>
+                                {item.label}
+                                {item.href.startsWith('http') && (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-4 h-4 ml-1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                    </svg>
+                                )}
+                            </a>
+                        ))}
+                        <div class="pt-4 border-t border-gray-200 dark:border-gray-700 space-y-4">
+                            <a href="/appointments" @click="mobileMenuOpen = false" class="block py-2 px-4 bg-[#7BBF67] text-white rounded-md text-center font-medium hover:bg-[#679F5A] transition">
+                                Schedule
+                            </a>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </header>
 
+        <!-- Mobile Header Second Row (Non-sticky) -->
+        <div class="md:hidden bg-[#5cc4b5] text-center py-2 border-b border-[#4a9b8f] mt-12">
+            <div class="text-base font-bold text-white">Yin Yang House</div>
+            <div class="text-sm text-gray-200">Twin Cities Acupuncture</div>
+        </div>
+
+        <!-- Left Sidebar for Medium+ Screens -->
+        <aside class="hidden md:block md:fixed md:top-16 md:left-0 md:w-64 md:h-[calc(100vh-4rem)] bg-[#f5f1e8] dark:bg-gray-800 border-r border-[#a48c3c] dark:border-gray-700 shadow-lg z-40">
+            <nav class="p-6">
+                <ul class="space-y-2">
+                    {navItems.map(item => (
+                        <li>
+                            <a href={item.href} {...(item.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} class={`block py-3 px-4 ${item.href === Astro.url.pathname ? 'bg-[#6a5a1f] text-white dark:bg-[#a48c3c] dark:text-white' : 'text-gray-900 dark:text-gray-200'} hover:bg-[#6a5a1f] hover:text-white dark:hover:bg-[#a48c3c] dark:hover:text-white rounded-lg transition font-medium`}>
+                                {item.label}
+                                {item.href.startsWith('http') && (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-4 h-4 ml-1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                    </svg>
+                                )}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </aside>
+
         <!-- Main Content -->
-        <main class={`${fullWidth ? 'mt-0' : 'pt-20'}`}>
+        <main class="pt-20 md:pt-20 md:ml-64 px-4 sm:px-6 lg:px-8 pb-32 bg-gray-50 dark:bg-gray-900 min-h-[calc(100vh-5rem)]">
+            <div class="max-w-4xl mx-auto">
 {visibleBreadcrumb && (
-  <div class="prose dark:prose-invert max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 bg-white dark:bg-gray-800 shadow-md rounded-t-lg p-6">
-    <nav class="flex items-center flex-wrap space-x-2 py-4 px-4 bg-gray-100 dark:bg-gray-800" typeof="BreadcrumbList" vocab="https://schema.org/">
+  <div class="prose dark:prose-invert max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 bg-gray-50 dark:bg-gray-800 shadow-md rounded-t-lg p-6 border border-gray-200 dark:border-gray-700">
+    <nav class="flex items-center flex-wrap space-x-2 py-4 px-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md" typeof="BreadcrumbList" vocab="https://schema.org/">
       <!-- Logo -->
       <a href="/" class="breadcrumb-link flex items-center space-x-2" property="item" typeof="WebPage" id="logo">
         <img src={yyhLogo.src} alt="Yin Yang House Logo" class="h-6 w-auto" />
@@ -263,8 +346,8 @@ const jsonLdFull = {
 
       <!-- Parent Page -->
       {thisPage.parent && (
-          <span class="text-gray-600 dark:text-gray-400">→</span>
-          <a href={`/${thisPage.parent}/`} class="breadcrumb-link text-gray-800 dark:text-gray-100 font-bold hover:underline" property="item" typeof="WebPage">
+          <span class="text-gray-500 dark:text-gray-400">→</span>
+          <a href={`/${thisPage.parent}/`} class="breadcrumb-link text-gray-700 dark:text-gray-200 font-bold hover:text-[#8a712b] dark:hover:text-[#a48c3c] hover:underline" property="item" typeof="WebPage">
           {thisPage.parent.replace('-', ' ')}
         </a>
       )}
@@ -272,15 +355,50 @@ const jsonLdFull = {
       <!-- Optional Title -->
       {thisTitle && (
         <>
-          <span class="text-gray-600 dark:text-gray-400">→</span>
+          <span class="text-gray-500 dark:text-gray-400">→</span>
           <span class="breadcrumb-link text-gray-800 dark:text-gray-100 font-bold" property="name">{thisTitle}</span>
         </>
       )}
     </nav>
   </div>
 )}
-            <slot />
+                <slot />
+            </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="fixed bottom-0 left-0 w-full bg-[#8a712b] text-white py-3 px-4 border-t border-[#a48c3c] z-40">
+            <div class="max-w-7xl mx-auto text-sm">
+                <p class="text-center mb-2">© 2025 Yin Yang House LLC</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-3">
+                        <a href="/appointments" class="px-3 py-1 bg-[#7BBF67] text-white rounded text-xs font-medium hover:bg-[#679F5A] transition">
+                            Schedule
+                        </a>
+                        <a href="/contact" class="px-3 py-1 border border-white text-white rounded text-xs font-medium hover:bg-white hover:text-[#8a712b] transition">
+                            Contact
+                        </a>
+                    </div>
+                    <ul class="flex space-x-4">
+                        <li>
+                            <a href="https://www.linkedin.com/company/yinyanghouse/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">
+                                <div class="h-8 w-8 bg-blue-700 rounded flex items-center justify-center text-white text-sm font-bold">in</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.com/yinyanghouse.center/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">
+                                <div class="h-8 w-8 bg-blue-600 rounded flex items-center justify-center text-white text-sm font-bold">f</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://bsky.app/profile/yinyanghouse.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">
+                                <img src={blueskyLogo.src} alt="Bluesky" class="h-8 w-8" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
 
@@ -289,6 +407,5 @@ const jsonLdFull = {
     body {
         margin: 0;
         width: 100%;
-        height: 100%;
     }
 </style>

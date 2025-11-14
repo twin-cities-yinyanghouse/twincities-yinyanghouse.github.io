@@ -1,0 +1,33 @@
+---
+const fees = [
+  { 
+    question: 'How much do your treatments cost?', 
+    answer: `<p><strong class="text-gray-900 dark:text-white">Private Acupuncture Treatment</strong><br>$90</p><p>Note that a "private acupuncture treatment" may include tuina, herbal medicine recommendations and other adjunctive therapies such as cupping and moxibustion as appropriate. There is never a fee for additional services or an increased rate for your "first visit". Herbal medicine purchased from our clinic is an additional fee, for most patients it is $15-$30 for a 1 month supply.</p><p><strong class="text-gray-900 dark:text-white">Community Clinic Acupuncture Treatment</strong><br>Sliding $40-$60</p><p>Community clinics are performed in an open space after a private consultation and are a more "basic" form of treatment. Due to timing and situational constraints, tuina and other forms of therapy such as cupping are rarely offered in this setting. Herbal medicine recommendations may also be made and herbal medicine purchases are an additional fee if you purchase them from our clinic.</p><p><strong class="text-gray-900 dark:text-white">Qigong / Tong Ren Therapy Classes</strong><br>By Donation</p><p><strong class="text-gray-900 dark:text-white">Yang Style Tai Chi Classes</strong><br>$60 / month</p>`
+  },
+  { 
+    question: 'What forms of payment do you accept?', 
+    answer: `<p>We will accept cash, checks (made payable to "Yin Yang House LLC"), or credit cards.  Our preference is credit cards via our online scheduling tool.</p>`
+  },
+  { 
+    question: 'Do you accept insurance?', 
+    answer: `<p>We are not part of a specific insurance program nor will we bill insurance companies. We will, however, provide you with the documentation that you may need to submit for a reimbursement.</p>`
+  }
+];
+---
+
+<section class="py-16">
+    <h2 class="text-3xl font-bold mb-4">Fees & Insurance</h2>
+    <p class="mb-8">Information about our pricing and insurance policies at Yin Yang House Twin Cities.</p>
+    <div class="space-y-6">
+      {fees.map((fee, index) => (
+        <div class="fee-item">
+          <h3 class="text-xl font-bold py-4 px-6 bg-[#5cc4b5] dark:bg-[#3b8c82] text-white rounded mb-2">
+            {fee.question}
+          </h3>
+          <div class="py-4 px-6 bg-gray-50 dark:bg-gray-800 rounded prose prose-lg max-w-none text-gray-900 dark:text-gray-100">
+            <span set:html={fee.answer}></span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>

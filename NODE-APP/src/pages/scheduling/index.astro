@@ -1,0 +1,31 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import Scheduling from "@components/Scheduling.astro";
+const pageData = {
+	title: "Schedule Acupuncture Appointment Minneapolis St Paul - Yin Yang House",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "", 
+	coveralt: "",
+	parent: "",
+	description: "Schedule your acupuncture appointment online at Yin Yang House Twin Cities. Book treatments for acupuncture, massage, and wellness services in Minneapolis and St. Paul.",
+	ogImage: "",
+	keywords: [
+		"schedule acupuncture appointment",
+		"book acupuncture Minneapolis",
+		"online booking acupuncture",
+		"acupuncture appointment St Paul",
+		"wellness appointment scheduling",
+		"Twin Cities acupuncture booking"
+	],
+	socialTitle: "Schedule Your Acupuncture Appointment - Yin Yang House Twin Cities",
+	socialDescription: "Easy online scheduling for acupuncture and wellness services in Minneapolis and St. Paul.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<Scheduling />
+</Layout>

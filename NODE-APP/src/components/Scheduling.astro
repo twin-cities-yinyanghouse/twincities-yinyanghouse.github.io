@@ -1,7 +1,13 @@
-<section id="schedule" class="pt-28 pb-16 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-  <!-- Card wrapper: centered with internal padding so content isn't flush to edges -->
-  <div class="w-full sm:w-4/5 mx-auto bg-white dark:bg-gray-800 rounded-xl shadow p-6">
-  <h3 class="font-headers">We are currently exploring options for our Twin Cities location, stay tuned!  If you'd like to be added to our waitlist/announcement list, feel free to email your request to <a href="mailto:tc@yyhmsg.net">tc [at] yyhmsg.net</a>.  Thank you!</h3>
+<section id="schedule" class="py-16 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <!-- Text section: centered content -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
+      <h3 class="font-headers">We are currently exploring options for our Twin Cities location, stay tuned!  If you'd like to be added to our waitlist/announcement list, feel free to email your request to <a href="mailto:tc@yyhmsg.net">tc [at] yyhmsg.net</a>.  Thank you!</h3>
+    </div>
+  </div>
+
+  <!-- Iframe section: full width -->
+  <div class="w-full">
     <div class="relative">
         <!-- Direct Square Appointments iframe embed (reliable inside Astro) -->
         <iframe
@@ -11,6 +17,24 @@
           allow="payment app.squareup.com"
           aria-label="Appointment scheduling iframe"
         ></iframe>
+    </div>
+  </div>
+
+  <!-- Buttons section -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/questions"
+        class="flex-1 px-6 py-3 bg-[#5cc4b5] dark:bg-[#9fcf67] hover:bg-opacity-90 text-white text-center rounded-md transition font-semibold"
+      >
+        Questions
+      </a>
+      <a
+        href="/conditions"
+        class="flex-1 px-6 py-3 bg-[#5cc4b5] dark:bg-[#9fcf67] hover:bg-opacity-90 text-white text-center rounded-md transition font-semibold"
+      >
+        Conditions Treated
+      </a>
     </div>
   </div>
 </section>

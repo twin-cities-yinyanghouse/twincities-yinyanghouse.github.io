@@ -1,0 +1,31 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import Reviews from "@components/Reviews.astro";
+const pageData = {
+	title: "Patient Reviews - Yin Yang House Twin Cities Acupuncture",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "",
+	coveralt: "",
+	parent: "",
+	description: "Read real patient reviews and testimonials for Yin Yang House Twin Cities acupuncture and wellness services in Minneapolis and St. Paul.",
+	ogImage: "",
+	keywords: [
+		"acupuncture reviews",
+		"patient testimonials",
+		"Yin Yang House reviews",
+		"acupuncture testimonials Minneapolis",
+		"wellness reviews twin cities",
+		"Chad Dupuis reviews"
+	],
+	socialTitle: "Patient Reviews - Yin Yang House, Chad Dupuis, Acupuncturist",
+	socialDescription: "Patient testimonials for Chad Dupuis of the Yin Yang House acupuncture and wellness center.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<Reviews />
+</Layout>

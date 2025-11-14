@@ -1,0 +1,77 @@
+---
+const reviews = [
+  {
+    text: "After years of suffering with a pinched nerve in my lower back and seeking treatment through steroid shots, physical therapy, and chiropractics with no success, I came to see Chad at Yin Yang House. In one visit, my pain was completely gone and has not returned in over a year. I am so happy that I came to find Yin Yang House. I would highly recommend to anyone looking for relief!",
+    author: "Fletcher"
+  },
+  {
+    text: "I started Acupuncture because I had severe migraines. Thanks to Chad, my life has improved both physically and mentally. I truly appreciate the folks at Yin Yang House helping me to become a better me. I highly recommend Yin Yang House for Acupuncture.",
+    author: "NaRena"
+  },
+  {
+    text: "I've been a customer and friend of Yin Yang House for 17 years! Their services are excellent. They keep me coming back. The treatments make me feel energized and pain free.",
+    author: "Tammy"
+  },
+  {
+    text: "I have advocated for acupuncture for many years after a friend gave me a gift certificate and I eventually decided to redeem it. I was very reluctant but immediately learned that I was so relaxed and my foot joint pain started going away. Now, as a long time (15 plus years) client, I continue to stay healthy and active. I also pick up an inexpensive Chinese med that is amazing for seasonal allergies! No sinus issues or head aches!",
+    author: "Judy"
+  },
+  {
+    text: "Chad is a wealth of knowledge in Chinese Medicine, we are so very fortunate to have him here. His gentle and kind approach welcomes you to feel at ease and trust him in his craft. A true Artist.",
+    author: "Lesha"
+  },
+  {
+    text: "The crew at Yin Yang are amazing. Chad has been able to get me so much relief from my autoimmune issues. Very grateful for his knowledge and expertise. Highly recommend.",
+    author: "Deanna"
+  },
+  {
+    text: "My first time getting acupuncture, and it was wonderful! Chad was very personable & the massage with George afterwards was great. I left Yin Yang House never having felt more relaxed!",
+    author: "Jenna"
+  },
+  {
+    text: "Absolutely life-changing!!",
+    author: "James"
+  }
+];
+---
+
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Patient Reviews</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Testimonials from patients of Chad Dupuis and the Yin Yang House.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {reviews.map((review, index) => (
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-[#5cc4b5] mb-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+          <blockquote class="text-gray-700 dark:text-gray-300 mb-4 italic leading-relaxed">
+            "{review.text}"
+          </blockquote>
+          <cite class="text-gray-900 dark:text-white font-semibold text-right block">
+            —{review.author}
+          </cite>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-gray-600 dark:text-gray-400 mb-6">
+        Ready to experience the benefits of acupuncture for yourself?
+      </p>
+      <a href="/questions" class="inline-block bg-[#5cc4b5] hover:bg-[#4a9b8f] text-white px-8 py-3 rounded-lg font-semibold transition mr-4">
+        Learn More
+      </a>
+      <a href="/scheduling" class="inline-block bg-[#7BBF67] hover:bg-[#679F5A] text-white px-8 py-3 rounded-lg font-semibold transition">
+        Schedule Appointment
+      </a>
+    </div>
+  </div>
+</section>

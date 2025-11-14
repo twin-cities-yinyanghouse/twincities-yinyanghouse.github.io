@@ -1,0 +1,145 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import blueskyLogo from '@assets/bluesky-logo.webp';
+const pageData = {
+	title: "Contact & Location - Yin Yang House Twin Cities Acupuncture Clinic Minneapolis",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "", 
+	coveralt: "",
+	parent: "",
+	description: "Contact Yin Yang House Twin Cities for acupuncture appointments. Find our location, phone number, email, hours, and stay updated with our social media.",
+	ogImage: "",
+	keywords: [
+		"contact acupuncture clinic Minneapolis",
+		"Yin Yang House location",
+		"acupuncture clinic address St Paul",
+		"Twin Cities wellness center contact",
+		"book acupuncture appointment",
+		"acupuncture clinic information",
+		"find Yin Yang House location"
+	],
+	socialTitle: "Contact & Location - Yin Yang House Twin Cities Acupuncture Clinic",
+	socialDescription: "Get in touch with Yin Yang House Twin Cities. Find our location, contact information, and book acupuncture appointments in Minneapolis and St. Paul.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<section class="py-16">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Contact & Location</h1>
+				<p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+					Ready to start your journey to better health? Get in touch with Yin Yang House Twin Cities and find our location.
+				</p>
+			</div>
+			
+			<div class="grid lg:grid-cols-2 gap-12">
+				<!-- Contact Information -->
+				<div>
+					<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Get In Touch</h2>
+						
+						<div class="space-y-6">
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-[#7BBF67] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<span class="text-white text-xl">📍</span>
+								</div>
+								<div>
+									<h3 class="font-semibold text-gray-900 dark:text-white mb-1">Location</h3>
+									<p class="text-gray-600 dark:text-gray-300">
+										We are currently exploring options for our Twin Cities location, stay tuned!<br>
+										If you'd like to be added to our waitlist/announcement list, feel free to email your request to <a href="mailto:tc@yyhmsg.net" class="text-[#8a712b] dark:text-[#5cc4b5] underline decoration-dotted hover:text-[#6a5a1f] dark:hover:text-[#4a9b8f] transition">tc@yyhmsg.net</a>. Thank you!
+									</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-[#7BBF67] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<span class="text-white text-xl">📞</span>
+								</div>
+								<div>
+									<h3 class="font-semibold text-gray-900 dark:text-white mb-1">Phone</h3>
+									<p class="text-gray-600 dark:text-gray-300">
+										<a href="tel:+15072008361" class="hover:text-[#8a712b]">(507) 200-8361</a>
+									</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-[#7BBF67] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<span class="text-white text-xl">✉️</span>
+								</div>
+								<div>
+									<h3 class="font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
+									<p class="text-gray-600 dark:text-gray-300">
+										<a href="mailto:tc@yyhmsg.net" class="hover:text-[#8a712b]">tc@yyhmsg.net</a>
+									</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-[#7BBF67] rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<span class="text-white text-xl">🕒</span>
+								</div>
+								<div>
+									<h3 class="font-semibold text-gray-900 dark:text-white mb-1">Hours</h3>
+									<p class="text-gray-600 dark:text-gray-300">
+										TBD
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Social Links -->
+					<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+						<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Follow Us</h3>
+						<div class="flex space-x-4">
+							<a href="https://www.linkedin.com/company/yinyanghouse/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">
+								<div class="h-12 w-12 bg-blue-700 rounded flex items-center justify-center text-white text-lg font-bold">in</div>
+							</a>
+							<a href="https://facebook.com/yinyanghouse.center/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">
+								<div class="h-12 w-12 bg-blue-600 rounded flex items-center justify-center text-white text-lg font-bold">f</div>
+							</a>
+							<a href="https://bsky.app/profile/yinyanghouse.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition">
+								<img src={blueskyLogo.src} alt="Bluesky" class="h-12 w-12" />
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Contact Form or Additional Info -->
+				<div>
+					<div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Learn More / Shop</h2>
+						<div class="space-y-4">
+							<a href="https://yinyanghouse.com/blog/posts/" target="_blank" rel="noopener noreferrer" class="block w-full bg-[#5cc4b5] hover:bg-[#4a9b8f] text-white px-6 py-3 rounded-lg font-semibold transition text-center">
+								Our Blog
+							</a>
+							<a href="https://yinyanghouse.com/theory/" target="_blank" rel="noopener noreferrer" class="block w-full bg-[#5cc4b5] hover:bg-[#4a9b8f] text-white px-6 py-3 rounded-lg font-semibold transition text-center">
+								Chinese Medicine Theory
+							</a>
+							<a href="https://yinyanghouse.com/shop/" target="_blank" rel="noopener noreferrer" class="block w-full bg-[#5cc4b5] hover:bg-[#4a9b8f] text-white px-6 py-3 rounded-lg font-semibold transition text-center">
+								Our Herb Store
+							</a>
+						</div>
+					</div>
+					
+					<div class="bg-[#8a712b] text-white p-8 rounded-lg text-center">
+						<h3 class="text-xl font-bold mb-4">Ready to Book Your Appointment?</h3>
+						<p class="mb-6">
+							If you have questions, feel free to contact us before scheduling.
+						</p>
+						<a href="/appointments" class="inline-block bg-[#7BBF67] hover:bg-[#679F5A] text-white px-8 py-3 rounded-lg font-semibold transition">
+							Book Now
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

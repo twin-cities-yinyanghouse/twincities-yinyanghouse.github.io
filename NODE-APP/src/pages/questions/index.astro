@@ -1,0 +1,32 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import Questions from "@components/Questions.astro";
+const pageData = {
+	title: "Acupuncture FAQ Minneapolis St Paul - Common Questions Answered",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "", 
+	coveralt: "",
+	parent: "",
+	description: "Frequently asked questions about acupuncture services in Minneapolis and St. Paul. Learn about treatments, safety, insurance, and what to expect.",
+	ogImage: "",
+	keywords: [
+		"acupuncture FAQ",
+		"does acupuncture hurt",
+		"acupuncture safety",
+		"first acupuncture visit",
+		"insurance for acupuncture",
+		"acupuncture treatments",
+		"Chinese medicine questions"
+	],
+	socialTitle: "Acupuncture FAQ - Yin Yang House Twin Cities",
+	socialDescription: "Answers to common questions about acupuncture and traditional Chinese medicine services in Minneapolis and St. Paul.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<Questions />
+</Layout>

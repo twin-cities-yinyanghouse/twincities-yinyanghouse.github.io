@@ -1,0 +1,33 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import Conditions from "@components/Conditions.astro";
+const pageData = {
+	title: "Health Conditions Treated with Acupuncture Minneapolis St Paul - Yin Yang House",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "", 
+	coveralt: "",
+	parent: "",
+	description: "Discover the wide range of health conditions we treat with acupuncture in Minneapolis and St. Paul, from pain management to mental health and women's health issues.",
+	ogImage: "",
+	keywords: [
+		"acupuncture for pain",
+		"acupuncture for anxiety",
+		"fertility acupuncture",
+		"acupuncture for digestion",
+		"respiratory conditions acupuncture",
+		"neurological acupuncture",
+		"holistic health conditions",
+		"alternative medicine treatments"
+	],
+	socialTitle: "Health Conditions Treated with Acupuncture - Yin Yang House Twin Cities",
+	socialDescription: "Comprehensive list of health conditions treated with acupuncture and traditional Chinese medicine in Minneapolis and St. Paul.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<Conditions />
+</Layout>

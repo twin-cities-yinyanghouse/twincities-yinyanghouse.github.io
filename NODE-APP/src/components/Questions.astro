@@ -1,0 +1,42 @@
+---
+const faqs = [
+  { 
+    question: 'How can acupuncture help me?', 
+    answer: `<p>Acupuncture is used worldwide both as a primary and complementary form of medical treatment. The list of conditions that acupuncture may help is essentially endless. The healing effects of acupuncture come in large part from the way that the body and mind are viewed and treated in Chinese medicine. While there are basic treatment protocols for many conditions, every treatment is tailored to your specific set of signs and symptoms. Treating you as an individual with a unique set of signs and symptoms, rather than a person with a specific condition, is the advantage that acupuncture offers.</p>`
+  },
+  { 
+    question: 'How many treatments will I need?', 
+    answer: `<p>This depends greatly on what type of condition you have. Most people will begin to see results from acupuncture in approximately 4-10 treatments. Treatments are generally administered once per week until your issues improve and then followup appointments may range from a few times per year to monthly to bi-weekly.</p><p>Most people find acupuncture treatments extremely relaxing and effective and may decide to come in for treatments after their initial conditions improve. Acupuncture is an important aspect of an overall health improvement and disease prevention program.</p>` 
+  },
+  {
+    question: 'Does acupuncture hurt? What are the needles like?',
+    answer: `<p>Acupuncture needles are sterile, single use and very thin. People are surprised to see how thin acupuncture needles are and any hesitation about the treatment disappears after the first needle is inserted. Nothing more than a mild pinch is felt upon insertion of the needles. After the needles are inserted most patients feel relaxed and comfortable and often fall asleep until their treatment is finished.</p>`
+  },
+  { 
+    question: 'What should I expect during my first visit?', 
+    answer: `<p>Your first visit includes a comprehensive health assessment where we'll discuss your medical history, current symptoms, lifestyle, and health goals. This takes 60-90 minutes total. We'll then perform your first acupuncture treatment. Wear comfortable clothing and eat a light meal beforehand. Bring any relevant medical records.</p>`
+  }
+];
+---
+
+<section class="py-16">
+    <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+    <p class="mb-8">Get answers to common questions about acupuncture and our services at Yin Yang House Twin Cities.</p>
+    <div class="space-y-6">
+      {faqs.map((faq, index) => (
+        <div class="faq-item">
+          <h3 class="text-xl font-bold py-4 px-6 bg-[#5cc4b5] dark:bg-[#3b8c82] text-white rounded mb-2">
+            {faq.question}
+          </h3>
+          <div class="py-4 px-6 bg-gray-50 dark:bg-gray-800 rounded prose prose-lg max-w-none text-gray-900 dark:text-gray-100">
+            <span set:html={faq.answer}></span>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/fees" class="inline-block bg-[#5cc4b5] hover:bg-[#4a9b8f] text-white px-8 py-3 rounded-lg font-semibold transition">
+        Current Fees
+      </a>
+    </div>
+  </section>

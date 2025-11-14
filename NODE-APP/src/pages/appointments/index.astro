@@ -2,8 +2,6 @@
 import "@styles";
 import Layout from '@layouts/Layout.astro';
 import Scheduling from "@components/Scheduling.astro";
-import Contact from "@components/Contact.astro";
-import Footer from "@components/Footer.astro";
 const pageData = {
 	title: "Acupuncture, Massage and Wellness Appointment Scheduling",
 	date: "",
@@ -24,7 +22,5 @@ const pageData = {
 <Layout fullWidth={true} thisPage={pageData} isArticle={false} isProduct={false}>
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<Scheduling />
-		<Contact />
-		<Footer />
 	</div>
 </Layout>

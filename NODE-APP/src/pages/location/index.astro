@@ -1,0 +1,31 @@
+---
+import "@styles";
+import Layout from '@layouts/Layout.astro';
+import Location from "@components/Location.astro";
+const pageData = {
+	title: "Location and Directions Minneapolis Acupuncture Clinic - Yin Yang House",
+	date: "",
+	slug: "",
+	author: "",
+	coverimage: "", 
+	coveralt: "",
+	parent: "",
+	description: "Find Yin Yang House Twin Cities acupuncture clinic in Minneapolis. Get directions, parking information, and contact details for our convenient downtown location.",
+	ogImage: "",
+	keywords: [
+		"acupuncture clinic location Minneapolis",
+		"Yin Yang House address",
+		"directions to acupuncture clinic",
+		"parking near acupuncture",
+		"Twin Cities acupuncture location",
+		"downtown Minneapolis wellness center"
+	],
+	socialTitle: "Location - Yin Yang House Twin Cities Acupuncture Clinic",
+	socialDescription: "Convenient downtown Minneapolis location for acupuncture and wellness services. Easy access and parking information.",
+	layout: "",
+}
+---
+
+<Layout thisPage={pageData} isArticle={false} isProduct={false}>
+	<Location />
+</Layout>
