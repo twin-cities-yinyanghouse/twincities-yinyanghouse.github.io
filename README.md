@@ -18,5 +18,8 @@ docker exec -it tc-yyh-front /bin/bash
    10  npx shadcn@latest add breadcrumb
    11  npx shadcn@latest add accordion
 ```
+## Keeping Upgraded
+Inside the container, npm outdated to see what needs to be updated, npx @astrojs/upgrade - then npm update.
+
 
 

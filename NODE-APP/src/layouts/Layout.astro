@@ -4,8 +4,8 @@ import yyhLogo from '@assets/yinyanghouse-clinic-mn-logo-300.webp';
 import blueskyLogo from '@assets/bluesky-logo.webp';
 import githubLogo from '@assets/github-logo.webp';
 import linkedinLogo from '@assets/linkedin-logo.webp';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
 const { thisPage = {}, fullWidth = false, isArticle = false, isProduct = false } = Astro.props;
-const visibleBreadcrumb = isArticle || isProduct;
 // fullwidth is used for schedule page
 // isArticle is used to show/expand breadcrumbs, etc.
 // isProduct is used to for store specific settings
@@ -45,7 +45,11 @@ const navItems = [
 
 // SEO Handling
 const siteUrl = Astro.site || 'https://tc.yinyanghouse.com';
+const siteOrigin = typeof siteUrl === 'string' ? siteUrl : siteUrl.toString();
+const currentPath = Astro.url?.pathname ?? '/';
+const currentUrl = Astro.url ?? new URL(currentPath, siteOrigin);
 const thisTitle = thisPage.title || 'Yin Yang House Twin Cities - Acupuncture and Wellness Center';
+const breadcrumbTitle = thisPage.breadcrumbTitle || thisTitle;
 const thisDescription = thisPage.description || 'Yin Yang House Twin Cities has been offering acupuncture and related services since 1999 through it various clinics and educational outreaches.';
 const thisImage = thisPage.image || new URL('/images/yinyanghouse-clinic-mn-log-300.png', siteUrl).toString();
 const thisKeywords = thisPage.keywords || 'acupuncture, massage, wellness, twin cities, minneapolis, st paul, qigong, tai chi, meditation, herbal medicine, healing, holistic health, alternative medicine';
@@ -53,36 +57,62 @@ const thisType = isArticle ? "Article" : (isProduct ? "Product" : "WebPage");
 
 
 // BreadCrumb and Rich Text Schema Setup
-const breadcrumbData = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tc.yinyanghouse.com/"
-    }
-  ]
+type BreadcrumbLink = {
+    label: string;
+    href?: string;
 };
 
-if (thisPage.parent) {
-  breadcrumbData.itemListElement.push({
-    "@type": "ListItem",
-    "position": 2,
-    "name": thisPage.parent.replace('-', ' '),
-    "item": `https://tc.yinyanghouse.com/${thisPage.parent}`
-  });
-}
+const normalizePath = (value: string) => {
+    const cleaned = value.replace(/^\/+/g, '').replace(/\/+/g, '/');
+    if (!cleaned) return '/';
+    return cleaned.endsWith('/') ? `/${cleaned}` : `/${cleaned}/`;
+};
 
-if (thisPage.slug) {
-    breadcrumbData.itemListElement.push({
-        "@type": "ListItem",
-        "position": breadcrumbData.itemListElement.length + 1,
-        "name": thisPage.title,
-        "item": `https://tc.yinyanghouse.com/${thisPage.parent ?? `${thisPage.parent}/`}${thisPage.slug}`
+const prettyLabel = (value: string) =>
+    value
+        .replace(/[-_/]+/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .trim()
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+
+const breadcrumbItems: BreadcrumbLink[] = [];
+
+const parentSlug = typeof thisPage.parent === 'string' ? thisPage.parent.trim() : '';
+
+if (parentSlug) {
+    breadcrumbItems.push({
+        label: thisPage.parentLabel || prettyLabel(parentSlug),
+        href: normalizePath(parentSlug),
     });
 }
+
+if (breadcrumbTitle && currentPath !== '/') {
+    breadcrumbItems.push({
+        label: breadcrumbTitle,
+        href: currentPath,
+    });
+}
+
+const breadcrumbSource: BreadcrumbLink[] = [
+    { label: 'Home', href: '/' },
+    ...breadcrumbItems,
+];
+
+const visibleBreadcrumb = breadcrumbSource.length > 0;
+
+const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbSource.map((item, index, array) => {
+        const href = item.href ?? (index === array.length - 1 ? currentPath : '/');
+        return {
+            "@type": "ListItem",
+            position: index + 1,
+            name: item.label,
+            item: new URL(href, siteOrigin).toString(),
+        };
+    }),
+};
 
 const jsonLdFull = {
   "@context": "https://schema.org",
@@ -90,21 +120,21 @@ const jsonLdFull = {
     breadcrumbData,
     {
       "@type": thisType,
-      "@id": Astro.url.href,
-      "url": Astro.url.href,
+            "@id": currentUrl.toString(),
+            "url": currentUrl.toString(),
       "name": thisTitle,
       "description": thisDescription,
       "image": thisImage,
       "author": {
         "@type": "Person",
-        "name": thisPage.author || 'Yin Yang House Twin Cities',
-        "url": Astro.site + "#aboutus"
+                "name": thisPage.author || 'Yin Yang House Twin Cities',
+                "url": new URL('#aboutus', siteOrigin).toString()
       },
       "datePublished": thisPage.date || "2025-04-24",
       "headline": thisTitle,
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": Astro.url.href
+                "@id": currentUrl.toString()
       }
     }
   ]
@@ -141,14 +171,14 @@ const jsonLdFull = {
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={isArticle ? 'article' : 'website'} />
-        <meta property="og:url" content={Astro.url} />
+        <meta property="og:url" content={currentUrl.toString()} />
         <meta property="og:title" content={thisPage.socialTitle || thisTitle} />
         <meta property="og:description" content={thisPage.socialDescription || thisDescription} />
         <meta property="og:image" content={thisImage} />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:url" content={currentUrl.toString()} />
         <meta property="twitter:title" content={thisPage.socialTitle || thisTitle} />
         <meta property="twitter:description" content={thisPage.socialDescription || thisDescription} />
         <meta property="twitter:image" content={thisImage} />
@@ -312,8 +342,8 @@ const jsonLdFull = {
         </div>
 
         <!-- Left Sidebar for Medium+ Screens -->
-        <aside class="hidden md:block md:fixed md:top-16 md:left-0 md:w-64 md:h-[calc(100vh-4rem)] bg-[#f5f1e8] dark:bg-gray-800 border-r border-[#a48c3c] dark:border-gray-700 shadow-lg z-40">
-            <nav class="p-6">
+        <aside class="hidden md:block md:fixed md:top-16 md:left-0 md:w-64 md:h-[calc(100vh-4rem)] md:overflow-y-auto md:pb-16 bg-[#f5f1e8] dark:bg-gray-800 border-r border-[#a48c3c] dark:border-gray-700 shadow-lg z-40">
+            <nav class="p-6 space-y-2 pb-20">
                 <ul class="space-y-2">
                     {navItems.map(item => (
                         <li>
@@ -335,32 +365,10 @@ const jsonLdFull = {
         <main class="pt-20 md:pt-20 md:ml-64 px-4 sm:px-6 lg:px-8 pb-32 bg-gray-50 dark:bg-gray-900 min-h-[calc(100vh-5rem)]">
             <div class="max-w-4xl mx-auto">
 {visibleBreadcrumb && (
-  <div class="prose dark:prose-invert max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 bg-gray-50 dark:bg-gray-800 shadow-md rounded-t-lg p-6 border border-gray-200 dark:border-gray-700">
-    <nav class="flex items-center flex-wrap space-x-2 py-4 px-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md" typeof="BreadcrumbList" vocab="https://schema.org/">
-      <!-- Logo -->
-      <a href="/" class="breadcrumb-link flex items-center space-x-2" property="item" typeof="WebPage" id="logo">
-        <img src={yyhLogo.src} alt="Yin Yang House Logo" class="h-6 w-auto" />
-        <span class="text-gray-800 dark:text-gray-100 font-bold">Clinic</span>
-      </a>
-
-
-      <!-- Parent Page -->
-      {thisPage.parent && (
-          <span class="text-gray-500 dark:text-gray-400">→</span>
-          <a href={`/${thisPage.parent}/`} class="breadcrumb-link text-gray-700 dark:text-gray-200 font-bold hover:text-[#8a712b] dark:hover:text-[#a48c3c] hover:underline" property="item" typeof="WebPage">
-          {thisPage.parent.replace('-', ' ')}
-        </a>
-      )}
-
-      <!-- Optional Title -->
-      {thisTitle && (
-        <>
-          <span class="text-gray-500 dark:text-gray-400">→</span>
-          <span class="breadcrumb-link text-gray-800 dark:text-gray-100 font-bold" property="name">{thisTitle}</span>
-        </>
-      )}
-    </nav>
-  </div>
+    <Breadcrumbs
+        items={breadcrumbItems}
+        class="w-full border-b border-gray-200 dark:border-gray-700 py-2 mb-6 text-xs text-gray-600 dark:text-gray-300"
+    />
 )}
                 <slot />
             </div>
