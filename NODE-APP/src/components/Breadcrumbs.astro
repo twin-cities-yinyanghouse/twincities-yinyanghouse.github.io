@@ -66,7 +66,7 @@ const makeAbsolute = (value: string) => new URL(value, base).toString();
     itemtype="https://schema.org/BreadcrumbList"
     aria-label="Breadcrumb"
   >
-    <ul class="flex items-center gap-1 w-full">
+    <ul class="flex flex-wrap items-center gap-1 w-full">
       {normalizedItems.map((item, index) => {
         const isLast = index === normalizedItems.length - 1;
         return (
@@ -91,7 +91,7 @@ const makeAbsolute = (value: string) => new URL(value, base).toString();
                     class="h-[14px] w-[14px] flex-none"
                   />
                 )}
-                <span itemprop="name" class="truncate">
+                <span itemprop="name" class="break-words whitespace-normal">
                   {item.label}
                 </span>
               </a>
@@ -106,7 +106,7 @@ const makeAbsolute = (value: string) => new URL(value, base).toString();
                     class="h-[14px] w-[14px] flex-none"
                   />
                 )}
-                <span itemprop="name" class="truncate">
+                <span itemprop="name" class="break-words whitespace-normal">
                   {item.label}
                 </span>
               </span>
